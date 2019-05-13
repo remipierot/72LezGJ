@@ -44,6 +44,8 @@ namespace Custom.Input
 		}
 
 		/// <summary>
+		/// /!\ DO NOT CHANGE METHOD CONTENT /!\
+		/// 
 		/// Has to be used in the Update of a Monobehaviour, otherwise input won't be updated.
 		/// </summary>
 		public void UpdateStates(float deltaTime)
@@ -80,6 +82,10 @@ namespace Custom.Input
 			}
 		}
 
+		/// <summary>
+		/// Defines how a key is recognized as used or not.
+		/// This method can be edited to defined specific ways to recognized a used/not used key.
+		/// </summary>
 		private void _FillKeysUsedOnFrame()
 		{
 			foreach (var kvp in _KeyStates)
