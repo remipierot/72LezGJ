@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4303143500256077726}
   - component: {fileID: 4303143500256077725}
   - component: {fileID: 4303143500256077724}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 6612950608857992482}
   - component: {fileID: 6612950608857992485}
   - component: {fileID: 6612950608857992486}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DownWalk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
