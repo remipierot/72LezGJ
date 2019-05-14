@@ -59,27 +59,32 @@ public class CharController : MonoBehaviour
 			LeftWalk?.SetActive(leftPressed && (LeftWalk.activeInHierarchy || (!upPressed && !rightPressed && !downPressed)));
 		}
 
-		if (_Controls.IsDown(KeyName.Action) && !_ChangingSize)
+		if (!_ChangingSize)
 		{
-			_NormalSize = !_NormalSize;
-
-			if (_NormalSize)
+			if (_Controls.IsDown(KeyName.Action))
 			{
-				_ChangingSize = true;
+				_NormalSize = !_NormalSize;
 
-				StartCoroutine(_ScaleUp());
-				SetLayerRecursively(gameObject, 10); //Set Layer to Large
-			}
-			else if(!Trigger.inWater)
-			{
-				_ChangingSize = true;
+				if (_NormalSize)
+				{
+					_ChangingSize = true;
 
-				StartCoroutine(_ScaleDown());
-				SetLayerRecursively(gameObject, 11); //Set Layer to Small
+					StartCoroutine(_ScaleUp());
+					SetLayerRecursively(gameObject, 10); //Set Layer to Large
+				}
+				else if (!Trigger.inWater)
+				{
+					_ChangingSize = true;
+
+					StartCoroutine(_ScaleDown());
+					SetLayerRecursively(gameObject, 11); //Set Layer to Small
+				}
 			}
+
+			_Body.velocity = direction.normalized * Speed;
 		}
-
-		_Body.velocity = direction.normalized * Speed;
+		else
+			_Body.velocity = Vector3.zero;
 	}
 
 	private IEnumerator _ScaleDown()
@@ -98,7 +103,8 @@ public class CharController : MonoBehaviour
 			yield return null;
 		}
 
-		gameObject.transform.localScale = endScale;
+		transform.localScale = endScale;
+		transform.position = endPos;
 		_ChangingSize = false;
 	}
 
@@ -118,7 +124,8 @@ public class CharController : MonoBehaviour
 			yield return null;
 		}
 
-		gameObject.transform.localScale = endScale;
+		transform.localScale = endScale;
+		transform.position = endPos;
 		_ChangingSize = false;
 	}
 
