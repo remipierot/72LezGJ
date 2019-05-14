@@ -55,7 +55,7 @@ MonoBehaviour:
   RightWalk: {fileID: 6612950608003307340}
   DownWalk: {fileID: 6612950608857992483}
   LeftWalk: {fileID: 6612950609707971855}
-  Trigger: {fileID: 6645800088015590690}
+  Trigger: {fileID: 4367670500386784644}
 --- !u!54 &4303143500256077724
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -82,7 +82,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7161187550833528457}
   - component: {fileID: 2259189362346961565}
-  - component: {fileID: 6645800088015590690}
+  - component: {fileID: 4367670500386784644}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Trigger
@@ -118,7 +118,7 @@ CapsuleCollider:
   m_Height: 2.1945124
   m_Direction: 0
   m_Center: {x: 0.042890072, y: 0.20181036, z: -6.848151e-16}
---- !u!114 &6645800088015590690
+--- !u!114 &4367670500386784644
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

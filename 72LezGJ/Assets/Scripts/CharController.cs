@@ -15,7 +15,7 @@ public class CharController : MonoBehaviour
 	public GameObject RightWalk;
 	public GameObject DownWalk;
 	public GameObject LeftWalk;
-	//public TriggerScript Trigger;
+	public TriggerScript Trigger;
 
 	void Update()
 	{
@@ -70,7 +70,6 @@ public class CharController : MonoBehaviour
 				StartCoroutine(_ScaleUp());
 				SetLayerRecursively(gameObject, 10); //Set Layer to Large
 			}
-			/*
 			else if(!Trigger.inWater)
 			{
 				_ChangingSize = true;
@@ -78,7 +77,6 @@ public class CharController : MonoBehaviour
 				StartCoroutine(_ScaleDown());
 				SetLayerRecursively(gameObject, 11); //Set Layer to Small
 			}
-			*/
 		}
 
 		_Body.velocity = direction.normalized * Speed;
