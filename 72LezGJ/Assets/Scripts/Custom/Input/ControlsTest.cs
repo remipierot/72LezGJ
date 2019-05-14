@@ -21,6 +21,12 @@ namespace Custom.Input
 			//Update actual input values
 			_Controls.UpdateStates(Time.deltaTime);
 
+			//Example: check if the 'Up' key is free (not pressed)
+			var free = _Controls.IsFree(KeyName.Up);
+
+			//Example: check how long the 'Up' key has been pressed
+			var timeUpPressed = _Controls.GetTimePressed(KeyName.Up);
+
 			//Update debug text
 			_UpdateText();
 		}
