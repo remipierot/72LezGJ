@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using Custom.Input;
@@ -8,7 +7,7 @@ public class CharController : MonoBehaviour
 	private Controls _Controls;
 	private Rigidbody _Body;
 	private bool _NormalSize = true;
-	private Coroutine _ScaleCoroutine;
+	private bool _ChangingSize = false;
 
 	public float Speed = 1f;
 	public float ScaleSpeed = 1f;
@@ -59,24 +58,19 @@ public class CharController : MonoBehaviour
 			LeftWalk?.SetActive(leftPressed && (LeftWalk.activeInHierarchy || (!upPressed && !rightPressed && !downPressed)));
 		}
 
-		if (_Controls.IsDown(KeyName.Action))
+		if (_Controls.IsDown(KeyName.Action) && !_ChangingSize)
 		{
 			_NormalSize = !_NormalSize;
+			_ChangingSize = true;
 
 			if (_NormalSize)
 			{
-				if(_ScaleCoroutine != null)
-					StopCoroutine(_ScaleCoroutine);
-
-				_ScaleCoroutine = StartCoroutine(_ScaleUp());
+				StartCoroutine(_ScaleUp());
 				SetLayerRecursively(gameObject, 10); //Set Layer to Large
 			}
 			else
 			{
-				if (_ScaleCoroutine != null)
-					StopCoroutine(_ScaleCoroutine);
-
-				_ScaleCoroutine = StartCoroutine(_ScaleDown());
+				StartCoroutine(_ScaleDown());
 				SetLayerRecursively(gameObject, 11); //Set Layer to Small
 			}
 		}
@@ -90,9 +84,6 @@ public class CharController : MonoBehaviour
 		var endScale = Vector3.one * .1f;
 		var time = 0f;
 
-		if (!Mathf.Approximately(startScale.x, .5f))
-			time = ScaleSpeed * (.5f - startScale.x) / .4f;
-
 		while (time < ScaleSpeed)
 		{
 			gameObject.transform.localScale = Vector3.Lerp(startScale, endScale, time / ScaleSpeed);
@@ -101,6 +92,7 @@ public class CharController : MonoBehaviour
 		}
 
 		gameObject.transform.localScale = endScale;
+		_ChangingSize = false;
 	}
 
 	private IEnumerator _ScaleUp()
@@ -109,9 +101,6 @@ public class CharController : MonoBehaviour
 		var endScale = Vector3.one * .5f;
 		var time = 0f;
 
-		if (!Mathf.Approximately(startScale.x, .1f))
-			time = ScaleSpeed * (startScale.x - .1f) / .4f;
-
 		while (time < ScaleSpeed)
 		{
 			gameObject.transform.localScale = Vector3.Lerp(startScale, endScale, time / ScaleSpeed);
@@ -120,26 +109,26 @@ public class CharController : MonoBehaviour
 		}
 
 		gameObject.transform.localScale = endScale;
+		_ChangingSize = false;
 	}
 
+	void SetLayerRecursively(GameObject obj, int newLayer)
+	{
+		if (null == obj)
+		{
+			return;
+		}
 
-    void SetLayerRecursively(GameObject obj, int newLayer)
-    {
-        if (null == obj)
-        {
-            return;
-        }
+		obj.layer = newLayer;
 
-        obj.layer = newLayer;
-
-        foreach (Transform child in obj.transform)
-        {
-            if (null == child)
-            {
-                continue;
-            }
-            SetLayerRecursively(child.gameObject, newLayer);
-        }
-    }
+		foreach (Transform child in obj.transform)
+		{
+			if (null == child)
+			{
+				continue;
+			}
+			SetLayerRecursively(child.gameObject, newLayer);
+		}
+	}
 
 }
