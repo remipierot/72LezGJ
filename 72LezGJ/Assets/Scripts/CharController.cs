@@ -14,6 +14,8 @@ public class CharController : MonoBehaviour
 	};
 	private bool _NormalSize = true;
 
+	public float Speed = 1f;
+
 	void Update()
 	{
 		if (_Controls == null)
@@ -71,6 +73,6 @@ public class CharController : MonoBehaviour
 				gameObject.transform.localScale = Vector3.one * .1f;
 		}
 
-		GetComponent<Rigidbody>().velocity = direction.normalized;
+		GetComponent<Rigidbody>().velocity = direction.normalized * Speed;
 	}
 }
