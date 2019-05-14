@@ -16,8 +16,9 @@ public class CharController : MonoBehaviour
 	public GameObject RightWalk;
 	public GameObject DownWalk;
 	public GameObject LeftWalk;
+    public triggerScript Trigger;
 
-	void Update()
+    void Update()
 	{
 		if (_Controls == null)
 			_Controls = new Controls();
@@ -71,7 +72,7 @@ public class CharController : MonoBehaviour
 				_ScaleCoroutine = StartCoroutine(_ScaleUp());
 				SetLayerRecursively(gameObject, 10); //Set Layer to Large
 			}
-			else
+			else if(!Trigger.inWater)
 			{
 				if (_ScaleCoroutine != null)
 					StopCoroutine(_ScaleCoroutine);
@@ -125,11 +126,11 @@ public class CharController : MonoBehaviour
 
     void SetLayerRecursively(GameObject obj, int newLayer)
     {
-        if (null == obj)
+        if (null == obj || obj.CompareTag("Trigger"))
         {
             return;
         }
-
+        
         obj.layer = newLayer;
 
         foreach (Transform child in obj.transform)
