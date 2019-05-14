@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using UnityEngine;
 using Custom.Input;
@@ -69,6 +69,7 @@ public class CharController : MonoBehaviour
 					StopCoroutine(_ScaleCoroutine);
 
 				_ScaleCoroutine = StartCoroutine(_ScaleUp());
+				SetLayerRecursively(gameObject, 10); //Set Layer to Large
 			}
 			else
 			{
@@ -76,6 +77,7 @@ public class CharController : MonoBehaviour
 					StopCoroutine(_ScaleCoroutine);
 
 				_ScaleCoroutine = StartCoroutine(_ScaleDown());
+				SetLayerRecursively(gameObject, 11); //Set Layer to Small
 			}
 		}
 
@@ -119,4 +121,25 @@ public class CharController : MonoBehaviour
 
 		gameObject.transform.localScale = endScale;
 	}
+
+
+    void SetLayerRecursively(GameObject obj, int newLayer)
+    {
+        if (null == obj)
+        {
+            return;
+        }
+
+        obj.layer = newLayer;
+
+        foreach (Transform child in obj.transform)
+        {
+            if (null == child)
+            {
+                continue;
+            }
+            SetLayerRecursively(child.gameObject, newLayer);
+        }
+    }
+
 }
