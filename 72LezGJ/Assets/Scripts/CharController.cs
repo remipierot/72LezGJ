@@ -34,7 +34,7 @@ public class CharController : MonoBehaviour
 			if (!rightPressed && !downPressed && !leftPressed && !Mathf.Approximately(yRotation, _YRotations[KeyName.Up]))
 				gameObject.transform.rotation = Quaternion.Euler(0f, _YRotations[KeyName.Up], 0f);
 
-			direction.z = 1f;
+			direction.z += 1f;
 		}
 
 		if (rightPressed)
@@ -42,7 +42,7 @@ public class CharController : MonoBehaviour
 			if (!upPressed && !downPressed && !leftPressed && !Mathf.Approximately(yRotation, _YRotations[KeyName.Right]))
 				gameObject.transform.rotation = Quaternion.Euler(0f, _YRotations[KeyName.Right], 0f);
 
-			direction.x = 1f;
+			direction.x += 1f;
 		}
 
 		if (downPressed)
@@ -50,7 +50,7 @@ public class CharController : MonoBehaviour
 			if (!rightPressed && !upPressed && !leftPressed && !Mathf.Approximately(yRotation, _YRotations[KeyName.Down]))
 				gameObject.transform.rotation = Quaternion.Euler(0f, _YRotations[KeyName.Down], 0f);
 
-			direction.z = -1f;
+			direction.z -= 1f;
 		}
 
 		if (leftPressed)
@@ -58,7 +58,7 @@ public class CharController : MonoBehaviour
 			if (!rightPressed && !downPressed && !upPressed && !Mathf.Approximately(yRotation, _YRotations[KeyName.Left]))
 				gameObject.transform.rotation = Quaternion.Euler(0f, _YRotations[KeyName.Left], 0f);
 
-			direction.x = -1f;
+			direction.x -= 1f;
 		}
 
 		if (_Controls.IsDown(KeyName.Action))
