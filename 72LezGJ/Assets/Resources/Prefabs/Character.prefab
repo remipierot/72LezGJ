@@ -357,7 +357,7 @@ MonoBehaviour:
     customFramesPerSecond: 8
     customBorder: {x: 0, y: 0, z: 0, w: 0}
     customPixelsPerUnit: 100
-    customFilterMode: 1
+    customFilterMode: 2
     wrapMode: 1
     startFrame: 0
     useUnscaledTime: 0
@@ -600,7 +600,7 @@ MonoBehaviour:
     customFramesPerSecond: 8
     customBorder: {x: 0, y: 0, z: 0, w: 0}
     customPixelsPerUnit: 100
-    customFilterMode: 1
+    customFilterMode: 2
     wrapMode: 1
     startFrame: 0
     useUnscaledTime: 0
