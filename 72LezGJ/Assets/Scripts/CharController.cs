@@ -62,16 +62,19 @@ public class CharController : MonoBehaviour
 		if (_Controls.IsDown(KeyName.Action) && !_ChangingSize)
 		{
 			_NormalSize = !_NormalSize;
-			_ChangingSize = true;
 
 			if (_NormalSize)
 			{
-				StartCoroutine(_ScaleUp());
+                _ChangingSize = true;
+
+                StartCoroutine(_ScaleUp());
 				SetLayerRecursively(gameObject, 10); //Set Layer to Large
 			}
 			else if(!Trigger.inWater)
 			{
-				StartCoroutine(_ScaleDown());
+                _ChangingSize = true;
+
+                StartCoroutine(_ScaleDown());
 				SetLayerRecursively(gameObject, 11); //Set Layer to Small
 			}
 		}
