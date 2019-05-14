@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 using Custom.Input;
 
 public class CharController : MonoBehaviour
@@ -6,8 +8,10 @@ public class CharController : MonoBehaviour
 	private Controls _Controls;
 	private Rigidbody _Body;
 	private bool _NormalSize = true;
+	private Coroutine _ScaleCoroutine;
 
 	public float Speed = 1f;
+	public float ScaleSpeed = 1f;
 	public GameObject UpWalk;
 	public GameObject RightWalk;
 	public GameObject DownWalk;
@@ -60,11 +64,59 @@ public class CharController : MonoBehaviour
 			_NormalSize = !_NormalSize;
 
 			if (_NormalSize)
-				gameObject.transform.localScale = Vector3.one * .5f;
+			{
+				if(_ScaleCoroutine != null)
+					StopCoroutine(_ScaleCoroutine);
+
+				_ScaleCoroutine = StartCoroutine(_ScaleUp());
+			}
 			else
-				gameObject.transform.localScale = Vector3.one * .1f;
+			{
+				if (_ScaleCoroutine != null)
+					StopCoroutine(_ScaleCoroutine);
+
+				_ScaleCoroutine = StartCoroutine(_ScaleDown());
+			}
 		}
 
 		_Body.velocity = direction.normalized * Speed;
+	}
+
+	private IEnumerator _ScaleDown()
+	{
+		var startScale = gameObject.transform.localScale;
+		var endScale = Vector3.one * .1f;
+		var time = 0f;
+
+		if (!Mathf.Approximately(startScale.x, .5f))
+			time = ScaleSpeed * (.5f - startScale.x) / .4f;
+
+		while (time < ScaleSpeed)
+		{
+			gameObject.transform.localScale = Vector3.Lerp(startScale, endScale, time / ScaleSpeed);
+			time += Time.deltaTime;
+			yield return null;
+		}
+
+		gameObject.transform.localScale = endScale;
+	}
+
+	private IEnumerator _ScaleUp()
+	{
+		var startScale = gameObject.transform.localScale;
+		var endScale = Vector3.one * .5f;
+		var time = 0f;
+
+		if (!Mathf.Approximately(startScale.x, .1f))
+			time = ScaleSpeed * (startScale.x - .1f) / .4f;
+
+		while (time < ScaleSpeed)
+		{
+			gameObject.transform.localScale = Vector3.Lerp(startScale, endScale, time / ScaleSpeed);
+			time += Time.deltaTime;
+			yield return null;
+		}
+
+		gameObject.transform.localScale = endScale;
 	}
 }
