@@ -15,9 +15,9 @@ public class CharController : MonoBehaviour
 	public GameObject RightWalk;
 	public GameObject DownWalk;
 	public GameObject LeftWalk;
-    public triggerScript Trigger;
+	public TriggerScript Trigger;
 
-    void Update()
+	void Update()
 	{
 		if (_Controls == null)
 			_Controls = new Controls();
@@ -65,16 +65,16 @@ public class CharController : MonoBehaviour
 
 			if (_NormalSize)
 			{
-                _ChangingSize = true;
+				_ChangingSize = true;
 
-                StartCoroutine(_ScaleUp());
+				StartCoroutine(_ScaleUp());
 				SetLayerRecursively(gameObject, 10); //Set Layer to Large
 			}
 			else if(!Trigger.inWater)
 			{
-                _ChangingSize = true;
+				_ChangingSize = true;
 
-                StartCoroutine(_ScaleDown());
+				StartCoroutine(_ScaleDown());
 				SetLayerRecursively(gameObject, 11); //Set Layer to Small
 			}
 		}
@@ -84,13 +84,16 @@ public class CharController : MonoBehaviour
 
 	private IEnumerator _ScaleDown()
 	{
-		var startScale = gameObject.transform.localScale;
+		var startScale = transform.localScale;
 		var endScale = Vector3.one * .1f;
+		var startPos = transform.position;
+		var endPos = transform.position - new Vector3(0f, 0f, .48f);
 		var time = 0f;
 
 		while (time < ScaleSpeed)
 		{
-			gameObject.transform.localScale = Vector3.Lerp(startScale, endScale, time / ScaleSpeed);
+			transform.localScale = Vector3.Lerp(startScale, endScale, time / ScaleSpeed);
+			transform.position = Vector3.Lerp(startPos, endPos, time / ScaleSpeed);
 			time += Time.deltaTime;
 			yield return null;
 		}
@@ -103,11 +106,14 @@ public class CharController : MonoBehaviour
 	{
 		var startScale = gameObject.transform.localScale;
 		var endScale = Vector3.one * .5f;
+		var startPos = transform.position;
+		var endPos = transform.position + new Vector3(0f, 0f, .48f);
 		var time = 0f;
 
 		while (time < ScaleSpeed)
 		{
-			gameObject.transform.localScale = Vector3.Lerp(startScale, endScale, time / ScaleSpeed);
+			transform.localScale = Vector3.Lerp(startScale, endScale, time / ScaleSpeed);
+			transform.position = Vector3.Lerp(startPos, endPos, time / ScaleSpeed);
 			time += Time.deltaTime;
 			yield return null;
 		}
@@ -116,24 +122,22 @@ public class CharController : MonoBehaviour
 		_ChangingSize = false;
 	}
 
-    void SetLayerRecursively(GameObject obj, int newLayer)
-    {
-        if (null == obj || obj.CompareTag("Trigger"))
-        {
-            return;
-        }
+	void SetLayerRecursively(GameObject obj, int newLayer)
+	{
+		if (null == obj || obj.CompareTag("Trigger"))
+		{
+			return;
+		}
 
-        obj.layer = newLayer;
+		obj.layer = newLayer;
 
-        foreach (Transform child in obj.transform)
-        {
-            if (null == child)
-            {
-                continue;
-            }
-            SetLayerRecursively(child.gameObject, newLayer);
-        }
-
-    }
+		foreach (Transform child in obj.transform)
+		{
+			if (null == child)
+			{
+				continue;
+			}
+			SetLayerRecursively(child.gameObject, newLayer);
+		}
+	}
 }
-  
