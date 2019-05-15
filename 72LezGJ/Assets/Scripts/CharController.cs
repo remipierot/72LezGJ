@@ -91,41 +91,33 @@ public class CharController : MonoBehaviour
 	{
 		var startScale = transform.localScale;
 		var endScale = Vector3.one * .1f;
-		var startPos = transform.position;
-		var endPos = transform.position - new Vector3(0f, 0f, .48f);
 		var time = 0f;
 
 		while (time < ScaleSpeed)
 		{
 			transform.localScale = Vector3.Lerp(startScale, endScale, time / ScaleSpeed);
-			transform.position = Vector3.Lerp(startPos, endPos, time / ScaleSpeed);
 			time += Time.deltaTime;
 			yield return null;
 		}
 
 		transform.localScale = endScale;
-		transform.position = endPos;
 		_ChangingSize = false;
 	}
 
 	private IEnumerator _ScaleUp()
 	{
-		var startScale = gameObject.transform.localScale;
+		var startScale = transform.localScale;
 		var endScale = Vector3.one * .5f;
-		var startPos = transform.position;
-		var endPos = transform.position + new Vector3(0f, 0f, .48f);
 		var time = 0f;
 
 		while (time < ScaleSpeed)
 		{
 			transform.localScale = Vector3.Lerp(startScale, endScale, time / ScaleSpeed);
-			transform.position = Vector3.Lerp(startPos, endPos, time / ScaleSpeed);
 			time += Time.deltaTime;
 			yield return null;
 		}
 
 		transform.localScale = endScale;
-		transform.position = endPos;
 		_ChangingSize = false;
 	}
 
