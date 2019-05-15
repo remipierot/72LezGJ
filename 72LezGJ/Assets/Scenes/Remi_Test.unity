@@ -402,6 +402,11 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6612950608857992483, guid: 700be91fc2a66f747aba8b9c4409f8fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6612950608003307347, guid: 700be91fc2a66f747aba8b9c4409f8fc,
         type: 3}
       propertyPath: m_Radius
@@ -421,6 +426,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: -7.066008e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6612950608857992482, guid: 700be91fc2a66f747aba8b9c4409f8fc,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 213128648579511054, guid: 46da0d7f26d22de468fd6c77a2669b04,
+        type: 2}
+    - target: {fileID: 6612950608857992482, guid: 700be91fc2a66f747aba8b9c4409f8fc,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6612950609707971858, guid: 700be91fc2a66f747aba8b9c4409f8fc,
         type: 3}

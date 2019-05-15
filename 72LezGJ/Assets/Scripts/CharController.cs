@@ -53,10 +53,23 @@ public class CharController : MonoBehaviour
 
 		if (direction.sqrMagnitude > 0f)
 		{
-			UpWalk?.SetActive(upPressed && (UpWalk.activeInHierarchy || (!rightPressed && !downPressed && !leftPressed)));
-			RightWalk?.SetActive(rightPressed && (RightWalk.activeInHierarchy || (!upPressed && !downPressed && !leftPressed)));
-			DownWalk?.SetActive(downPressed && (DownWalk.activeInHierarchy || (!upPressed && !rightPressed && !leftPressed)));
-			LeftWalk?.SetActive(leftPressed && (LeftWalk.activeInHierarchy || (!upPressed && !rightPressed && !downPressed)));
+			var upActive = upPressed && (UpWalk.activeInHierarchy || (!rightPressed && !downPressed && !leftPressed));
+			var rightActive = rightPressed && (RightWalk.activeInHierarchy || (!upPressed && !downPressed && !leftPressed));
+			var downActive = downPressed && (DownWalk.activeInHierarchy || (!upPressed && !rightPressed && !leftPressed));
+			var leftActive = leftPressed && (LeftWalk.activeInHierarchy || (!upPressed && !rightPressed && !downPressed));
+
+			if (!upActive && !rightActive && !downActive && !leftActive)
+			{
+				if (upPressed)
+					upActive = true;
+				else
+					downActive = true;
+			}
+
+			UpWalk?.SetActive(upActive);
+			RightWalk?.SetActive(rightActive);
+			DownWalk?.SetActive(downActive);
+			LeftWalk?.SetActive(leftActive);
 		}
 
 		if (!_ChangingSize)
