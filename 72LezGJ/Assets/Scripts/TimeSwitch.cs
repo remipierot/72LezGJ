@@ -13,5 +13,12 @@ public class TimeSwitch : MonoBehaviour
 			else
 				GameManager.SwitchToPresent();
 		}
+		else if(other.name.Contains("PushBox"))
+		{
+			if (SwitchToPast)
+				GameManager.LinkObjectToPast(other.gameObject);
+			else
+				GameManager.LinkObjectToPresent(other.gameObject);
+		}
 	}
 }

@@ -36,4 +36,20 @@ public class GameManager : MonoBehaviour
 
 		Instance.TimeIsPresent = true;
 	}
+
+	public static void LinkObjectToPast(GameObject go)
+	{
+		Instance.ObjectsInPresent.Remove(go);
+		Instance.ObjectsInPast.Add(go);
+
+		go.SetActive(!Instance.TimeIsPresent);
+	}
+
+	public static void LinkObjectToPresent(GameObject go)
+	{
+		Instance.ObjectsInPast.Remove(go);
+		Instance.ObjectsInPresent.Add(go);
+
+		go.SetActive(Instance.TimeIsPresent);
+	}
 }
