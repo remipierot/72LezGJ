@@ -1306,6 +1306,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4303143500256077724, guid: 700be91fc2a66f747aba8b9c4409f8fc,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6612950608857992482, guid: 700be91fc2a66f747aba8b9c4409f8fc,
         type: 3}
       propertyPath: m_Sprite
@@ -2086,6 +2091,21 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6678462893420168721, guid: 19fc48676a5bf8944b6dd4a1b998ff35,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678462893420168721, guid: 19fc48676a5bf8944b6dd4a1b998ff35,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678462893420168721, guid: 19fc48676a5bf8944b6dd4a1b998ff35,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19fc48676a5bf8944b6dd4a1b998ff35, type: 3}
 --- !u!1 &1138577331
@@ -2196,7 +2216,23 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6678462893420168721, guid: 19fc48676a5bf8944b6dd4a1b998ff35,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678462893420168721, guid: 19fc48676a5bf8944b6dd4a1b998ff35,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678462893420168721, guid: 19fc48676a5bf8944b6dd4a1b998ff35,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6678462893420168714, guid: 19fc48676a5bf8944b6dd4a1b998ff35, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 19fc48676a5bf8944b6dd4a1b998ff35, type: 3}
 --- !u!4 &1170460591 stripped
 Transform:
