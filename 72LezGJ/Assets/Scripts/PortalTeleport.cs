@@ -1,50 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PortalTeleport : MonoBehaviour
 {
-    public GameObject linkedPortal;
-    public bool canTeleport = true;
+	public GameObject LinkedPortal;
+	public bool CanTeleport = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.tag != "Player" && other.gameObject.tag != "TPableObject")
+			return;
 
-    }
+		if (!CanTeleport)
+			return;
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "TPableObject")
-        {
-            if (canTeleport)
-            {
-                linkedPortal.GetComponent<PortalTeleport>().canTeleport = false;
-                other.transform.position = new Vector3(linkedPortal.transform.position.x, other.transform.position.y, linkedPortal.transform.position.z);
-                if (other.gameObject.tag == "TPableObject")
-                {
-                    other.GetComponent<Rigidbody>().AddForce(other.GetComponent<pushingBox>().direction * 0.00002f);
-                }
-            }
-        }
+		LinkedPortal.GetComponent<PortalTeleport>().CanTeleport = false;
+		if (other.gameObject.tag == "TPableObject")
+		{
+			other.transform.position = new Vector3(LinkedPortal.transform.position.x, other.transform.position.y, LinkedPortal.transform.position.z);
+			other.GetComponent<Rigidbody>().AddForce(other.GetComponent<pushingBox>().direction * .00002f);
+		}
+		else
+		{
+			other.transform.parent.position = new Vector3(LinkedPortal.transform.position.x, other.transform.parent.position.y, LinkedPortal.transform.position.z);
+		}
+	}
 
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "TPableObject")
-        {
-            if (canTeleport == false)
-            {
-                canTeleport = true;
-            }
-        }
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	void OnTriggerExit(Collider other)
+	{
+		if (other.gameObject.tag == "Player" || other.gameObject.tag == "TPableObject")
+			if (CanTeleport == false)
+				CanTeleport = true;
+	}
 }
