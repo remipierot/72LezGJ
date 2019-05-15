@@ -19,7 +19,5 @@ public class pushingBox : MonoBehaviour
     void Update()
     {
         direction = transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity);
-        print(direction);
     }
-
 }

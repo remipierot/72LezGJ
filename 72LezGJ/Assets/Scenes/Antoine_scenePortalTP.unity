@@ -184,6 +184,11 @@ PrefabInstance:
       propertyPath: linkedPortal
       value: 
       objectReference: {fileID: 1519379938}
+    - target: {fileID: 6033238591240898829, guid: 1a9d2fe21217f1b43b8d1d823339303a,
+        type: 3}
+      propertyPath: LinkedPortal
+      value: 
+      objectReference: {fileID: 1519379938}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a9d2fe21217f1b43b8d1d823339303a, type: 3}
 --- !u!1 &369357377
@@ -303,11 +308,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 4303143500256077722, guid: 700be91fc2a66f747aba8b9c4409f8fc,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 4303143500256077726, guid: 700be91fc2a66f747aba8b9c4409f8fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -363,11 +363,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4303143500256077724, guid: 700be91fc2a66f747aba8b9c4409f8fc,
+    - target: {fileID: 6612950608857992482, guid: 700be91fc2a66f747aba8b9c4409f8fc,
         type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 213128648579511054, guid: 46da0d7f26d22de468fd6c77a2669b04,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 700be91fc2a66f747aba8b9c4409f8fc, type: 3}
 --- !u!1001 &888667964
@@ -442,6 +443,11 @@ PrefabInstance:
       propertyPath: linkedPortal
       value: 
       objectReference: {fileID: 1165747954}
+    - target: {fileID: 6033238591240898829, guid: 1a9d2fe21217f1b43b8d1d823339303a,
+        type: 3}
+      propertyPath: LinkedPortal
+      value: 
+      objectReference: {fileID: 1165747954}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a9d2fe21217f1b43b8d1d823339303a, type: 3}
 --- !u!1 &900056061
@@ -476,8 +482,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba987aba64aa1e14b89fb36aea0be9df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linkedPortal: {fileID: 595911658}
-  canTeleport: 1
+  LinkedPortal: {fileID: 595911658}
+  CanTeleport: 1
 --- !u!65 &900056063
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -711,7 +717,7 @@ MeshCollider:
   m_GameObject: {fileID: 1760172142}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -1049,6 +1055,11 @@ PrefabInstance:
     - target: {fileID: 6033238591240898829, guid: 1a9d2fe21217f1b43b8d1d823339303a,
         type: 3}
       propertyPath: linkedPortal
+      value: 
+      objectReference: {fileID: 900056061}
+    - target: {fileID: 6033238591240898829, guid: 1a9d2fe21217f1b43b8d1d823339303a,
+        type: 3}
+      propertyPath: LinkedPortal
       value: 
       objectReference: {fileID: 900056061}
     m_RemovedComponents: []
