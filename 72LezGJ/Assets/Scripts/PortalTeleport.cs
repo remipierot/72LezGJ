@@ -17,7 +17,7 @@ public class PortalTeleport : MonoBehaviour
 		if (other.gameObject.tag == "TPableObject")
 		{
 			other.transform.position = new Vector3(LinkedPortal.transform.position.x, other.transform.position.y, LinkedPortal.transform.position.z);
-			other.GetComponent<Rigidbody>().AddForce(other.GetComponent<pushingBox>().direction * .00002f);
+			//other.GetComponent<Rigidbody>().AddForce(other.GetComponent<pushingBox>().direction * .00002f);
 		}
 		else
 		{
