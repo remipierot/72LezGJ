@@ -865,6 +865,16 @@ PrefabInstance:
       propertyPath: LinkedPortal
       value: 
       objectReference: {fileID: 1870384253}
+    - target: {fileID: 6033238591240898829, guid: 1a9d2fe21217f1b43b8d1d823339303a,
+        type: 3}
+      propertyPath: OutDirection.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6033238591240898829, guid: 1a9d2fe21217f1b43b8d1d823339303a,
+        type: 3}
+      propertyPath: OutDirection.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a9d2fe21217f1b43b8d1d823339303a, type: 3}
 --- !u!4 &483878238 stripped
@@ -1158,6 +1168,16 @@ PrefabInstance:
       propertyPath: LinkedPortal
       value: 
       objectReference: {fileID: 401938111}
+    - target: {fileID: 6033238591240898829, guid: 1a9d2fe21217f1b43b8d1d823339303a,
+        type: 3}
+      propertyPath: OutDirection.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6033238591240898829, guid: 1a9d2fe21217f1b43b8d1d823339303a,
+        type: 3}
+      propertyPath: OutDirection.y
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a9d2fe21217f1b43b8d1d823339303a, type: 3}
 --- !u!1 &664921977 stripped
@@ -1256,6 +1276,11 @@ PrefabInstance:
       propertyPath: LinkedPortal
       value: 
       objectReference: {fileID: 156253290}
+    - target: {fileID: 6033238591240898829, guid: 1a9d2fe21217f1b43b8d1d823339303a,
+        type: 3}
+      propertyPath: OutDirection.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a9d2fe21217f1b43b8d1d823339303a, type: 3}
 --- !u!1001 &718802616
@@ -2189,7 +2214,7 @@ PrefabInstance:
     - target: {fileID: 6678462893420168725, guid: 19fc48676a5bf8944b6dd4a1b998ff35,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 6678462893420168725, guid: 19fc48676a5bf8944b6dd4a1b998ff35,
         type: 3}
@@ -2235,6 +2260,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678462893420168725, guid: 19fc48676a5bf8944b6dd4a1b998ff35,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678462893420168725, guid: 19fc48676a5bf8944b6dd4a1b998ff35,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678462893420168725, guid: 19fc48676a5bf8944b6dd4a1b998ff35,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6678462893420168721, guid: 19fc48676a5bf8944b6dd4a1b998ff35,
         type: 3}
@@ -2549,7 +2589,7 @@ PrefabInstance:
     - target: {fileID: 6033238591240898824, guid: 1a9d2fe21217f1b43b8d1d823339303a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.89
+      value: 1.57
       objectReference: {fileID: 0}
     - target: {fileID: 6033238591240898824, guid: 1a9d2fe21217f1b43b8d1d823339303a,
         type: 3}
@@ -2606,6 +2646,11 @@ PrefabInstance:
       propertyPath: LinkedPortal
       value: 
       objectReference: {fileID: 483878239}
+    - target: {fileID: 6033238591240898829, guid: 1a9d2fe21217f1b43b8d1d823339303a,
+        type: 3}
+      propertyPath: OutDirection.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a9d2fe21217f1b43b8d1d823339303a, type: 3}
 --- !u!1 &1870384253 stripped
@@ -2643,6 +2688,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Past_Time_Gate_toPresent
+      objectReference: {fileID: 0}
+    - target: {fileID: 459431225822061587, guid: 651825885582e594ab9161391df04a57,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7791632647109036724, guid: 651825885582e594ab9161391df04a57,
         type: 3}

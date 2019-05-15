@@ -152,4 +152,17 @@ public class CharController : MonoBehaviour
 			SetLayerRecursively(child.gameObject, newLayer);
 		}
 	}
+
+	public void SwitchFacing(Vector2 direction)
+	{
+		var upActive = Mathf.Approximately(direction.y, 1f);
+		var rightActive = Mathf.Approximately(direction.x, 1f);
+		var downActive = Mathf.Approximately(direction.y, -1f);
+		var leftActive = Mathf.Approximately(direction.x, -1f);
+
+		UpWalk?.SetActive(upActive);
+		RightWalk?.SetActive(rightActive);
+		DownWalk?.SetActive(downActive);
+		LeftWalk?.SetActive(leftActive);
+	}
 }
