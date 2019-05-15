@@ -2,7 +2,7 @@
 
 public class PortalTeleport : MonoBehaviour
 {
-	public GameObject LinkedPortal;
+	public PortalTeleport LinkedPortal;
 	public bool CanTeleport = true;
 	public Vector2 OutDirection = Vector2.up;
 
@@ -14,15 +14,15 @@ public class PortalTeleport : MonoBehaviour
 		if (!CanTeleport)
 			return;
 
-		LinkedPortal.GetComponent<PortalTeleport>().CanTeleport = false;
+		LinkedPortal.CanTeleport = false;
 		if (other.gameObject.tag == "TPableObject")
 		{
-			other.transform.position = new Vector3(LinkedPortal.transform.position.x + OutDirection.x, other.transform.position.y, LinkedPortal.transform.position.z + OutDirection.y);
+			other.transform.position = new Vector3(LinkedPortal.transform.position.x + LinkedPortal.OutDirection.x, other.transform.position.y, LinkedPortal.transform.position.z + LinkedPortal.OutDirection.y);
 		}
 		else
 		{
 			other.transform.parent.position = new Vector3(LinkedPortal.transform.position.x, other.transform.parent.position.y, LinkedPortal.transform.position.z);
-			other.transform.parent.gameObject.GetComponent<CharController>().SwitchFacing(OutDirection);
+			other.transform.parent.gameObject.GetComponent<CharController>().SwitchFacing(LinkedPortal.OutDirection);
 		}
 	}
 
