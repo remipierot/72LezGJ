@@ -94,10 +94,20 @@ public class CharController : MonoBehaviour
 				}
 			}
 
-			_Body.velocity = direction.normalized * Speed;
+			if (Trigger.inWater && gameObject.layer.Equals(11))
+			{
+				// quick and shitty water flow fixed direction....
+				Vector3 waterFlow = new Vector3(-5f,0,0);
+				_Body.velocity = (direction.normalized + waterFlow) * (Speed/3);
+			} else
+			{
+				_Body.velocity = direction.normalized * Speed;
+			}
+			
 		}
 		else
 			_Body.velocity = Vector3.zero;
+
 	}
 
 	private IEnumerator _ScaleDown()

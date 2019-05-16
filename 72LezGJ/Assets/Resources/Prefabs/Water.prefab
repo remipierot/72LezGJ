@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 369729856862245267}
   - component: {fileID: 3699713179088916708}
   - component: {fileID: 6566031353814795651}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Water
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -86,8 +86,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2541775622759889469}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.8660436, z: 1}
-  m_Center: {x: -0, y: 1.4330218, z: 0}
+  m_Size: {x: 0.90840805, y: 3.8660436, z: 1}
+  m_Center: {x: 0, y: 1.4330218, z: 0}
