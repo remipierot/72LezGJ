@@ -8,7 +8,7 @@ public class CameraHandler : MonoBehaviour
 	{
 		Vector3 targetPosition = Character.transform.position;
 		targetPosition.y = transform.position.y;
-
+		targetPosition.z -= 2.0f;		
 		transform.position = targetPosition;
 	}
 }

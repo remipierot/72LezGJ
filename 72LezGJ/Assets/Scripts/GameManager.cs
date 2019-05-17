@@ -1,13 +1,24 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class GameManager : MonoBehaviour
 {
 	public static GameManager Instance{ get; private set; }
 
+	public Camera mainCam;
+	public PostProcessVolume volume;
+	public PostProcessProfile ppp_present;
+	public PostProcessProfile ppp_past;
+
+
 	public bool TimeIsPresent = true;
 	public List<GameObject> ObjectsInPresent;
 	public List<GameObject> ObjectsInPast;
+
+	void Start() {
+		SwitchToPresent();
+	}
 
 	private void Update()
 	{
@@ -24,6 +35,9 @@ public class GameManager : MonoBehaviour
 			pastObject.SetActive(true);
 
 		Instance.TimeIsPresent = false;
+
+		Instance.mainCam.GetComponent<PostProcessScript>().enabled = true; // Sepia
+		Instance.volume.profile = Instance.ppp_past;		
 	}
 
 	public static void SwitchToPresent()
@@ -35,6 +49,9 @@ public class GameManager : MonoBehaviour
 			presentObject.SetActive(true);
 
 		Instance.TimeIsPresent = true;
+
+		Instance.mainCam.GetComponent<PostProcessScript>().enabled = false; // Sepia
+		Instance.volume.profile = Instance.ppp_present;		
 	}
 
 	public static void LinkObjectToPast(GameObject go)
